@@ -4,7 +4,7 @@
 /* LOGIN */
 
 body {
-    background-image: url("img/bglogin.jpg");
+    background-image: url("../img/bglogin.jpg");
     background-repeat: no-repeat; /* Do not repeat the image */
     background-attachment: fixed; /* Fix the background image during scrolling */
     background-position: center; /* Center the background image */
@@ -19,7 +19,7 @@ body {
     align-items: center;
     height: 100vh; /* Full viewport height */
     font-family: "Poppins", sans-serif;
-    font-weight: 200;
+    font-weight: 300;
     font-style: normal;
 
 }
