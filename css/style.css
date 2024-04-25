@@ -32,3 +32,17 @@ body {
     background-color: blue;
 }
 /*                                                  */
+
+/* REGISTER */
+
+/* Center the registration form */
+.register-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    
+}

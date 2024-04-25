@@ -18,11 +18,12 @@ class UserAuthenticator {
     // loginUser method attempts to log in a user using provided username and password from the form
     public function loginUser($formUsername, $formPassword)
     {
+        // 'this' represents the current instance of the class in which it is used
         $this->username = $formUsername;
         $this->password = $formPassword;
 
         // Validates input and checks credentials. Throws exceptions on failure
-        $user = $this->validateInput();
+        $user = $this->validateInput(); // This is also used to call other methods in the same object
         $user = $this->checkCredentials();
         // Sets session variables upon successful login
         $this->setSessionVariables($user);
@@ -89,7 +90,7 @@ if (isset($_POST['submit'])) {
     } catch (Exception $e) {
         // Log the error
         error_log($e->getMessage());
-        // Render an error message for the user
+        // Render an error message to the user
         $error_message = $e->getMessage();
     }
 }
@@ -129,7 +130,7 @@ if (isset($_POST['submit'])) {
                         <input type="password" class="form-control" id="password" name="password" placeholder="Enter password">
                     </div>
                     <button type="submit" class="btn btn-primary btn-block loginbutton" name="submit">Login</button>
-                    <a href="create_user.php"><p>Create an account</p></a>
+                    <a href="register.php"><p>Create an account</p></a>
                 </form>
             </div>
         </div>
