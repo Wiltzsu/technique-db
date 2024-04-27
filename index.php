@@ -33,15 +33,15 @@ if (!isset($_SESSION['username']))
 <body>
 <div class="container centered-container">
     <div class="card p-4">
-        <h2 class="text-center mb-4">BJJ Technique Diary</h2>
+        <h2 class="text-center mb-4">Grappling Technique Journal</h2>
         <p class="text-center"><?php echo $greeting; ?></p>
 
         <div class="list-group">
-            <a href="diary.php" class="list-group-item list-group-item-action">
-                <strong>Diary:</strong> View and log your daily technique practice.
+            <a href="journal.php" class="list-group-item list-group-item-action">
+                <strong>Journal:</strong> View and log your daily practice.
             </a>
-            <a href="edit.php" class="list-group-item list-group-item-action">
-                <strong>Edit Techniques:</strong> Add new techniques, categories, and positions.
+            <a href="technique/home_technique.php" class="list-group-item list-group-item-action">
+                <strong>Add Techniques:</strong> Add new techniques, categories, and positions.
             </a>
             <a href="profile.php" class="list-group-item list-group-item-action">
                 <strong>Your Profile:</strong> View and edit your personal information.
@@ -52,14 +52,14 @@ if (!isset($_SESSION['username']))
         if (!isset($_SESSION['username'])) {?>
         <div class="text-center mt-3">
             <a href="users/login.php" class="btn btn-primary">Login</a>
-            <a href="users/register.php" class="btn btn-secondary ml-2">Sign Up</a>
+            <a href="users/register.php" class="btn btn-secondary btn1 ml-2">Sign Up</a>
         </div>
         <?php }?>
 
         <?php
         if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {?>
                 <div class="text-center mt-3">
-            <a href="users/logout.php" class="btn btn-primary">Logout</a>
+            <a href="users/logout.php" class="btn btn-primary btn1">Logout</a>
         </div><?php
         }?>
 

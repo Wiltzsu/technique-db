@@ -35,19 +35,15 @@ class UserRegistration {
         if (empty($this->username)) {
             throw new Exception('Please enter a username.');
         }
-
         if (empty($this->email)) {
             throw new Exception('Please enter your email.');
         }
-
         if (empty($this->password)) {
             throw new Exception ('Please enter a password.');
         }
-
         if (empty($_POST['password_confirm'])) {
             throw new Exception ('Please confirm your password.');
         }
-
         // Checks if the second password field's input is the same as first
         if ($this->password !== $_POST['password_confirm']) {
             throw new Exception('Passwords do not match.');
