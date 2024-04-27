@@ -17,9 +17,10 @@ class UserRegistration {
         error_reporting(E_ALL); // Report all PHP errors
         ini_set('display_errors', 1); // Display errors to the browser
     }
-    
+    // registerUser attempts to register the user with the given parameters and methods
     public function registerUser($formUsername, $formEmail, $formPassword)
     {
+        // 'this' represents the current instance of the class in which it is used
         $this->username = trim($formUsername);
         $this->email = trim($formEmail);
         $this->password = trim($formPassword);
@@ -29,6 +30,7 @@ class UserRegistration {
         $this->createUser();
     }
 
+    // validateInput checks if any of the inputs are empty when submitting form
     private function validateInput() {
         if (empty($this->username)) {
             throw new Exception('Please enter a username.');
@@ -46,6 +48,7 @@ class UserRegistration {
             throw new Exception ('Please confirm your password.');
         }
 
+        // Checks if the second password field's input is the same as first
         if ($this->password !== $_POST['password_confirm']) {
             throw new Exception('Passwords do not match.');
         }
@@ -53,7 +56,7 @@ class UserRegistration {
 
     private function createUser()
     {
-        $insert_query = "INSERT INTO user (username, email, password) VALUES(:username, :email, :password)";
+        $insert_query = "INSERT INTO User (username, email, password) VALUES(:username, :email, :password)";
         
         // Use $this to access the pdoConnection since it is set as a private property in the class
         // $this keyword is used within class methods to refer to the current object, regardless of wheter they're public, protected or private
@@ -72,7 +75,7 @@ class UserRegistration {
 
 $error_message = ''; // Initiate an empty error message variable
 
-// Usage
+// Usage of the userRegistration class
 
 // Require database connection file
 require "../db.php";
@@ -131,6 +134,7 @@ if (isset($_POST['submit'])) {
                         <input type="password" class="form-control" id="password2" name="password_confirm" placeholder="Enter password">
                     </div>
                     <button type="submit" name="submit" class="btn btn-primary btn-block">Register</button>
+                    <a href="login.php"><p>Login</p></a>
                 </form>
             </div>
         </div>

@@ -44,7 +44,7 @@ class UserAuthenticator {
     private function checkCredentials()
     {
         // '?' acts as a placeholder and tells PDO to expect a parameter when the prepared statement is executed
-        $query = $this->pdoConnection->prepare("SELECT * FROM user WHERE username = ?"); 
+        $query = $this->pdoConnection->prepare("SELECT * FROM User WHERE username = ?"); 
         // Execute the prepared statement with the provided username. This replaces the '?' placeholder with the actual username, ensuring the value is properly quoted and escaped
         $query->execute([$this->username]);
         // Retrieve the result of the query as an associative array where column names are keys. This array represents the user data fetched from the database
@@ -71,7 +71,7 @@ class UserAuthenticator {
 
 $error_message = ''; // Initiate an empty error message variable
 
-// Usage
+// Usage of UserAuthenticator class
 
 // Require database connection file
 require "../db.php";
