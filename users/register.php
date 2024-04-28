@@ -58,7 +58,7 @@ class UserRegistration {
         // $this keyword is used within class methods to refer to the current object, regardless of wheter they're public, protected or private
         $statement = $this->pdoConnection->prepare($insert_query);
             
-            // Bind variables to the prepared statement as parameters
+            // Bind user input variables to the prepared statement as parameters to ensure safe database insertion
             $statement->bindParam(":username", $this->username, PDO::PARAM_STR);
             $statement->bindParam(":email", $this->email, PDO::PARAM_STR);
             $statement->bindParam(":password", $this->hashed_password, PDO::PARAM_STR);
