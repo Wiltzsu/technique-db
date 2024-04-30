@@ -26,13 +26,8 @@ $error_message = '';
 // Instantiate CreateTechnique class, providing the PDO database connection object as parameter
 $createTechnique = new CreateTechnique($pdoConnection);
 
-// Checks if form submit button is clicked and use the object to run the addTechnique method
+// Checks if form submit technique button is clicked and use the object to run the addTechnique method
 if (isset($_POST['submitTechnique'])) {
-    // Before calling addTechnique, validate that the IDs exist in their respective tables
-    $validPosition = $pdoConnection->prepare("SELECT 1 FROM Position WHERE positionID = ?");
-    $validPosition->execute([$_POST['positionID']]);
-    if ($validPosition->fetch()) {
-        // The positionID exists
         try {
             if ($createTechnique->addTechnique(
                 $_POST['techniqueName'],
@@ -42,18 +37,14 @@ if (isset($_POST['submitTechnique'])) {
                 $_POST['difficultyID'])) {
                 // If the insertion is successful, redirect
                 header("Location: home_technique.php");
+                echo "<div class='alert alert-success'>Technique added succesfull</div>";
                 exit();
             }
         } catch (Exception $e) {
             error_log($e->getMessage());
             $error_message = $e->getMessage();
         }
-    } else {
-        error_log("The provided positionID does not exist in the Position table.");
-        $error_message = "Invalid positionID.";
-        // Handle the error as needed
     }
-}
 ?>
 
 <!DOCTYPE html>

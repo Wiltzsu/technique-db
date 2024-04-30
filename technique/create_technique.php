@@ -10,6 +10,7 @@ if (session_status() == PHP_SESSION_NONE) {
     private $positionID;
     private $difficultyID;
 
+    // Constructor for the CreateTechnique class
     public function __construct($pdoConnection)
     {
         $this->pdoConnection = $pdoConnection;
