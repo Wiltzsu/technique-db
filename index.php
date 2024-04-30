@@ -31,6 +31,7 @@ if (!isset($_SESSION['username']))
     <link href="./css/style.css" rel="stylesheet">
 </head>
 <body>
+
 <div class="container centered-container">
     <div class="card p-4">
         <h2 class="text-center mb-4">Grappling Technique Journal</h2>
@@ -65,6 +66,8 @@ if (!isset($_SESSION['username']))
 
 
     </div>
+
+
 </div>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
