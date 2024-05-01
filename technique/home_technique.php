@@ -7,6 +7,7 @@ require "../db.php";
 include "create_options.php";
 include "create_technique.php";
 include "create_position.php";
+include "create_category.php";
 
 // Display errors for debugging (remove or turn off error reporting in a production environment)
 error_reporting(0);
@@ -49,10 +50,27 @@ if (isset($_POST['submitTechnique'])) {
 // Instantiate CreatePosition class, providing the PDO database connection object as parameter
 $createPosition = new CreatePosition($pdoConnection);
 
-// Checks if form 'submitPosition' button is clicked and uses the object to run the addTechnique method
+// Checks if form 'submitPosition' button is clicked and uses the object to call the addTechnique method
 if (isset($_POST['submitPosition'])) {
     try {
         if ($createPosition->addPosition($_POST['positionName'], $_POST['positionDescription'])) {
+            // If the insertion is successful, redirect user
+            header("Location: home_technique.php");
+            exit();
+        }
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        $error_message = $e->getMessage();
+    }
+}
+
+// Instantiate CreateCategory class, providing the PDO database connection object as parameter
+$createCategory = new CreateCategory($pdoConnection);
+
+// Checks if form 'submitCategory' is pressed and uses the object to call the addCategory method with given parameters
+if (isset($_POST['submitCategory'])) {
+    try {
+        if ($createCategory->addCategory($_POST['categoryName'], $_POST['categoryDescription'])) {
             // If the insertion is successful, redirect user
             header("Location: home_technique.php");
             exit();
@@ -160,7 +178,7 @@ if (isset($_POST['submitPosition'])) {
             <div class="card-body">
                 <!-- Category Form Column -->
                 <div class="col-md-4">
-                    <form action="submit_category.php" method="POST">
+                    <form action="home_technique.php" method="POST">
 
                         <!-- Category name -->
                         <h4>Add a New Category</h4>
@@ -168,7 +186,12 @@ if (isset($_POST['submitPosition'])) {
                             <label for="categoryName">Category Name:</label>
                             <input type="text" class="form-control" id="categoryName" name="categoryName" required>
                         </div>
-                        <button type="submit" name="subclass="btn btn-primary btn1">Add Category</button>
+
+                        <div class="form-group">
+                            <label for="categoryDescription">Category Name:</label>
+                            <input type="text" class="form-control" id="categoryDescription" name="categoryDescription" required>
+                        </div>
+                        <button type="submit" name="submitCategory" class="btn btn-primary btn1">Add Category</button>
                     </form>
                 </div>        
             </div>

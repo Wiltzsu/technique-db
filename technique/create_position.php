@@ -39,7 +39,8 @@ class CreatePosition {
     }
 
     // Insertion logic to add a new position
-    public function createPosition() {
+    public function createPosition() 
+    {
         $insert_query = "INSERT INTO Position (positionName, positionDescription) VALUES(:positionName, :positionDescription)"; // ':' are placeholders before the actual values are bound
 
         // Prepares the SQL query for execution using the PDO 'prepare' method.
