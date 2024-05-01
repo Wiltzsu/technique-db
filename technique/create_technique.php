@@ -2,7 +2,8 @@
 // Start session only if not already started
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
-}class CreateTechnique {
+}
+class CreateTechnique {
     private $pdoConnection;
     private $techniqueName;
     private $techniqueDescription;
@@ -18,7 +19,7 @@ if (session_status() == PHP_SESSION_NONE) {
         ini_set('display_errors', 1); // Display errors to the browser
     }
 
-    // Add technique is the main function that adds the technique to the database
+    // addTechnique is the main function that adds the technique to the database
     public function addTechnique($formTechniqueName, $formTechniqueDescription, $formcategoryID, $formPositionCategory, $formdifficultyID)
     {
         // 'this' represents the current instance of the class in which it is used
@@ -54,7 +55,9 @@ if (session_status() == PHP_SESSION_NONE) {
     {
         $insert_query = "INSERT INTO Technique (techniqueName, techniqueDescription, categoryID, positionID, difficultyID) VALUES(:techniqueName, :techniqueDescription, :categoryID, :positionID, :difficultyID)";
 
-        // Access the private pdoConnection in the class
+        // Prepares the SQL query for execution using the PDO 'prepare' method.
+        // The 'prepare' method is called on the 'pdoConnection' object, which is a property of the class
+        // 'this' refers to the current instance of the class, and is used to access instance properties or methods
         $statement = $this->pdoConnection->prepare($insert_query);
 
             // Bind user input variables to the prepared statement as parameters to ensure safe database insertion
@@ -64,7 +67,7 @@ if (session_status() == PHP_SESSION_NONE) {
             $statement->bindParam(":positionID", $this->positionID, PDO::PARAM_INT);
             $statement->bindParam(":difficultyID", $this->difficultyID, PDO::PARAM_INT);
 
-            // Execute the prepared statement and check the result, throw an exception if it fails
+            // Execute the prepared statement and throw an exception if it fails
             if (!$statement->execute()) {
                 error_log("Failed to execute query: " . $statement->errorInfo()[2]); // Log SQL error
                 throw new Exception("Error creating technique");

@@ -6,6 +6,7 @@ require "../db.php";
 // Require necessary files
 include "create_options.php";
 include "create_technique.php";
+include "create_position.php";
 
 // Display errors for debugging (remove or turn off error reporting in a production environment)
 error_reporting(0);
@@ -26,7 +27,7 @@ $error_message = '';
 // Instantiate CreateTechnique class, providing the PDO database connection object as parameter
 $createTechnique = new CreateTechnique($pdoConnection);
 
-// Checks if form submit technique button is clicked and use the object to run the addTechnique method
+// Checks if form 'submitTechnique' button is clicked and uses the object to run the addTechnique method
 if (isset($_POST['submitTechnique'])) {
         try {
             if ($createTechnique->addTechnique(
@@ -37,7 +38,6 @@ if (isset($_POST['submitTechnique'])) {
                 $_POST['difficultyID'])) {
                 // If the insertion is successful, redirect
                 header("Location: home_technique.php");
-                echo "<div class='alert alert-success'>Technique added succesfull</div>";
                 exit();
             }
         } catch (Exception $e) {
@@ -45,6 +45,23 @@ if (isset($_POST['submitTechnique'])) {
             $error_message = $e->getMessage();
         }
     }
+
+// Instantiate CreatePosition class, providing the PDO database connection object as parameter
+$createPosition = new CreatePosition($pdoConnection);
+
+// Checks if form 'submitPosition' button is clicked and uses the object to run the addTechnique method
+if (isset($_POST['submitPosition'])) {
+    try {
+        if ($createPosition->addPosition($_POST['positionName'], $_POST['positionDescription'])) {
+            // If the insertion is successful, redirect user
+            header("Location: home_technique.php");
+            exit();
+        }
+    } catch (Exception $e) {
+        error_log($e->getMessage());
+        $error_message = $e->getMessage();
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -134,7 +151,7 @@ if (isset($_POST['submitTechnique'])) {
         <div class="card-header" id="headingTwo">
             <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                Add a position to the database.
+                Add a category to the database.
                 </button>
             </h5>
         </div>
@@ -144,12 +161,14 @@ if (isset($_POST['submitTechnique'])) {
                 <!-- Category Form Column -->
                 <div class="col-md-4">
                     <form action="submit_category.php" method="POST">
+
+                        <!-- Category name -->
                         <h4>Add a New Category</h4>
                         <div class="form-group">
                             <label for="categoryName">Category Name:</label>
                             <input type="text" class="form-control" id="categoryName" name="categoryName" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn1">Add Category</button>
+                        <button type="submit" name="subclass="btn btn-primary btn1">Add Category</button>
                     </form>
                 </div>        
             </div>
@@ -160,7 +179,7 @@ if (isset($_POST['submitTechnique'])) {
         <div class="card-header" id="headingThree">
             <h5 class="mb-0">
                 <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                Add a category to the database.
+                Add a position to the database.
                 </button>
             </h5>
         </div>
@@ -169,13 +188,21 @@ if (isset($_POST['submitTechnique'])) {
             <div class="card-body">
                 <!-- Position Form Column -->
                 <div class="col-md-4">
-                    <form action="home_Techn.php" method="POST">
+                    <form action="home_technique.php" method="POST">
+
+                        <!-- Position name -->
                         <h4>Add a New Position</h4>
                         <div class="form-group">
                             <label for="positionName">Position Name:</label>
                             <input type="text" class="form-control" id="positionName" name="positionName" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn1">Add Position</button>
+
+                        <!-- Position description -->
+                        <div class="form-group">
+                            <label for="positionDescription">Position Name:</label>
+                            <input type="text" class="form-control" id="positionDescription" name="positionDescription" required>
+                        </div>
+                        <button type="submit" name="submitPosition" class="btn btn-primary btn1">Add Position</button>
                     </form>
                 </div>        
             </div>
