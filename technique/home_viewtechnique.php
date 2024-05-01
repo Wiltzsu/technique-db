@@ -5,6 +5,7 @@ session_start();
 require "../db.php";
 // Include necessary files
 include "read_techniques.php";
+include "read_categories.php";
 
 // Display errors for debugging (remove or turn off error reporting in a production environment)
 error_reporting(E_ALL);
@@ -19,30 +20,30 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
     $greeting = "Welcome to your BJJ Technique Diary. Keep track of your training, add new techniques, and personalize your learning journey.";
 }
 
-// Set an error message variable for insertion logic
-$error_message = '';
-
 // Instantiate CreatePosition class, providing the PDO database connection object as parameter
 $readTechniques = new ReadTechniques($pdoConnection);
 
 // Trigger the reading and JSON creation process
 $readTechniques->readTechniques();
 
-$file_path = "techniques.json";
+// Assign the JSON file path to a variable
+$techniques_file_path = "techniques.json";
 
 // Check if 'techniques.json' exists
-if (file_exists($file_path)) {
+if (file_exists($techniques_file_path)) {
     // Check if file is readable
-    if (is_readable($file_path)) {
+    if (is_readable($techniques_file_path)) {
         // Get file contents
-        $json_data = file_get_contents($file_path);
+        $technique_json_data = file_get_contents($techniques_file_path);
         // Decode the JSON data into a PHP array
-        $technique_array = json_decode($json_data, true);
+        $technique_array = json_decode($technique_json_data, true);
 
-        // Check if '$technique_array is an array and contains 'techniques'
-        if (isset($technique_array['techniques']) && is_array($technique_array['techniques'])) {
-            // Iterate through each technique in the array
-            foreach ($technique_array['techniques'] as $technique) {
+        // Check if '$technique_array is an array and contains a key named 'techniques'
+        if (isset($technique_array['techniques']) && is_array($technique_array['techniques'])) 
+        {
+            // Iterate through each item in the array
+            foreach ($technique_array['techniques'] as $technique) 
+            {
                 $techniqueID = $technique['techniqueID'];
                 $techniqueName = $technique['techniqueName'];
                 $techniqueDescription = $technique['techniqueDescription'];
@@ -53,6 +54,40 @@ if (file_exists($file_path)) {
         }
     }
 }
+
+// Instantiate CreateCategory class, providing the PDO database connection object as a parameter
+$readCategories = new ReadCategories($pdoConnection);
+
+// Trigger the reading and JSON creating process
+$readCategories->readCategories();
+
+// Assign the JSON file path to a variable
+$categories_file_path = "categories.json";
+
+// Check if 'categories.json' exists
+if (file_exists($categories_file_path)) {
+    // Check if file is readable
+    if (is_readable($categories_file_path)) {
+        // Get file contents
+        $category_json_data = file_get_contents($categories_file_path);
+        // Decode the JSON data into a PHP array
+        $category_array = json_decode($category_json_data, true);
+
+        // Check if '$category_array' is an array and contains a key named 'categories'
+        if (isset($category_array['categories']) && is_array($category_array['categories']))
+        {
+            // Iterate through each item in the array
+            foreach ($category_array['categories'] as $category)
+            {
+                $categoryID = $category['categoryID'];
+                $categoryName = $category['categoryName'];
+                $categoryDescription = $category['categoryDescription'];
+            }
+        }
+    }
+}
+
+// 
 ?>
 
 <!DOCTYPE html>
@@ -87,10 +122,12 @@ if (file_exists($file_path)) {
                 <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
                     <?php
-                        if (isset($technique_array['techniques']) && is_array($technique_array['techniques'])) {
+                        if (isset($technique_array['techniques']) && is_array($technique_array['techniques'])) 
+                        {
                             echo '<div class="row">'; // Row for better bootstrap layout
-                            foreach ($technique_array['techniques'] as $technique) {
-                                echo '<div class="col-md-4 mb-3">'; // Each technique in a clomun
+                            foreach ($technique_array['techniques'] as $technique) 
+                            {
+                                echo '<div class="col-md-4 mb-3">'; // Each technique in a column
                                 echo '<div class="card">';
                                 echo '<div class="card-body">';
                                 echo '<h5 class="card-title">' . htmlspecialchars($technique['techniqueName']) . "</h5>";
@@ -119,8 +156,25 @@ if (file_exists($file_path)) {
 
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-
-                </div>        
+            <?php
+                if (isset($category_array['categories']) && is_array($category_array['categories']))
+                {
+                    echo '<div class="row">'; // Bootstrap layout
+                    foreach ($category_array['categories'] as $category)
+                    {
+                        echo '<div class="col-md-4 mb-3">'; // Each technique in a column
+                        echo '<div class="card">';
+                        echo '<div class="card-body">';
+                        // The null coalesing operator '??' used to provide a default value if field value is null
+                        echo '<h5 class="card-title">' . htmlspecialchars($category['categoryName'] ?? '') . "</h5>";
+                        echo '<p class="card-text">' . htmlspecialchars($category['categoryDescription'] ?? '') . "</p>";
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                }
+            ?>
+      
             </div>
         </div>
     </div>

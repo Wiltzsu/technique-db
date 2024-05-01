@@ -1,0 +1,24 @@
+{
+    "categories": [
+        {
+            "categoryID": 6,
+            "categoryName": "testtt",
+            "categoryDescription": "testttt"
+        },
+        {
+            "categoryID": 5,
+            "categoryName": "Submission",
+            "categoryDescription": null
+        },
+        {
+            "categoryID": 4,
+            "categoryName": "Takedown",
+            "categoryDescription": null
+        },
+        {
+            "categoryID": 3,
+            "categoryName": "Guard",
+            "categoryDescription": null
+        }
+    ]
+}
