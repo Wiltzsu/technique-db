@@ -41,9 +41,15 @@ if (!isset($_SESSION['username']))
             <a href="journal.php" class="list-group-item list-group-item-action">
                 <strong>Journal:</strong> View and log your daily practice.
             </a>
+
             <a href="technique/home_technique.php" class="list-group-item list-group-item-action">
                 <strong>Add Techniques:</strong> Add new techniques, categories, and positions.
             </a>
+
+            <a href="technique/home_viewtechnique.php" class="list-group-item list-group-item-action">
+                <strong>View Techniques:</strong> View your techniques, categories, and positions.
+            </a>
+
             <a href="profile.php" class="list-group-item list-group-item-action">
                 <strong>Your Profile:</strong> View and edit your personal information.
             </a>

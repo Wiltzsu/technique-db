@@ -1,0 +1,148 @@
+{
+    "techniques": [
+        {
+            "techniqueID": 23,
+            "techniqueName": "JORMAAA",
+            "techniqueDescription": "JORMAAAA",
+            "categoryName": "Guard",
+            "difficulty": "Intermediate",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 22,
+            "techniqueName": "testi",
+            "techniqueDescription": "testi",
+            "categoryName": "Guard",
+            "difficulty": "Intermediate",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 21,
+            "techniqueName": "teppo",
+            "techniqueDescription": "teppo",
+            "categoryName": "Guard",
+            "difficulty": "Intermediate",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 20,
+            "techniqueName": "jorma",
+            "techniqueDescription": "jarmo",
+            "categoryName": "Guard",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 19,
+            "techniqueName": "im testing",
+            "techniqueDescription": "im testing",
+            "categoryName": "Submission",
+            "difficulty": "Intermediate",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 18,
+            "techniqueName": "test",
+            "techniqueDescription": "test",
+            "categoryName": "Guard",
+            "difficulty": "Intermediate",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 15,
+            "techniqueName": "kyrp\u00e4",
+            "techniqueDescription": "dddd",
+            "categoryName": "Guard",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 14,
+            "techniqueName": "deeedde",
+            "techniqueDescription": "dede",
+            "categoryName": "Submission",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 13,
+            "techniqueName": "julli",
+            "techniqueDescription": "adad",
+            "categoryName": "Submission",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 12,
+            "techniqueName": "kulli",
+            "techniqueDescription": "adad",
+            "categoryName": "Guard",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 11,
+            "techniqueName": "adadada",
+            "techniqueDescription": "dadadad",
+            "categoryName": "Guard",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 10,
+            "techniqueName": "dddd",
+            "techniqueDescription": "ddd",
+            "categoryName": "Guard",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 9,
+            "techniqueName": "dasdas",
+            "techniqueDescription": "asdasd",
+            "categoryName": "Guard",
+            "difficulty": "Intermediate",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 8,
+            "techniqueName": "adasd",
+            "techniqueDescription": "adsads",
+            "categoryName": "Guard",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 7,
+            "techniqueName": "ss",
+            "techniqueDescription": "s",
+            "categoryName": "Guard",
+            "difficulty": "Intermediate",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 6,
+            "techniqueName": "d",
+            "techniqueDescription": "d",
+            "categoryName": "Guard",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        },
+        {
+            "techniqueID": 4,
+            "techniqueName": "a",
+            "techniqueDescription": "a",
+            "categoryName": "Guard",
+            "difficulty": "Intermediate",
+            "positionName": "Half Guard"
+        },
+        {
+            "techniqueID": 3,
+            "techniqueName": "s",
+            "techniqueDescription": "s",
+            "categoryName": "Guard",
+            "difficulty": "Easy",
+            "positionName": "Closed Guard"
+        }
+    ]
+}

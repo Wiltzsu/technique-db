@@ -111,7 +111,7 @@ if (isset($_POST['submitCategory'])) {
                     </h5>
                 </div>
 
-                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
                     <div class="card-body">
 
                     <!-- Technique Form Column -->
