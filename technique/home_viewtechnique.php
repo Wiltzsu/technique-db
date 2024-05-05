@@ -6,6 +6,7 @@ require "../db.php";
 // Include necessary files
 include "read_techniques.php";
 include "read_categories.php";
+include "read_positions.php";
 
 // Display errors for debugging (remove or turn off error reporting in a production environment)
 error_reporting(E_ALL);
@@ -87,7 +88,37 @@ if (file_exists($categories_file_path)) {
     }
 }
 
-// 
+// Instantiate CreatePosition class, provide the PDO database connection object as a parameter
+$readPositions = new ReadPositions($pdoConnection);
+
+// Trigger the reading and JSON creating process
+$readPositions->readPositions();
+
+// Assign the JSON file path to a variable
+$positions_file_path = "positions.json";
+
+// Check if 'positions.json' exists
+if (file_exists($positions_file_path)) {
+    // Check if file is readable
+    if (is_readable($positions_file_path)) {
+        // Get file contents
+        $position_json_data = file_get_contents($positions_file_path);
+        // Decode the JSON data into a PHP array
+        $position_array = json_decode($position_json_data, true);
+
+        // Check if '$position_array' is an array and contains a key named 'positions'
+        if (isset($position_array['positions']) && is_array($position_array['positions']))
+        {
+            // Iterate through each item in the array
+            foreach ($position_array['positions'] as $position)
+            {
+                $positionID = $position['positionID'];
+                $positionName = $position['positionName'];
+                $positionDescription = $position['positionDescription'];
+            }
+        }
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -174,7 +205,6 @@ if (file_exists($categories_file_path)) {
                     }
                 }
             ?>
-      
             </div>
         </div>
     </div>
@@ -190,8 +220,25 @@ if (file_exists($categories_file_path)) {
 
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
- 
-                </div>        
+            <?php
+                if (isset($position_array['positions']) && is_array($position_array['positions']))
+                {
+                    echo '<div class="row">'; // Bootstrap layout
+                    foreach ($position_array['positions'] as $position)
+                    {
+                        echo '<div class="col-md-4 mb-3">'; // Each technique in a column
+                        echo '<div class="card">';
+                        echo '<div class="card-body">';
+                        // The null coalesing operator '??' used to provide a default value if field value is null
+                        echo '<h5 class="card-title">' . htmlspecialchars($position['positionName'] ?? '') . "</h5>";
+                        echo '<p class="card-text">' . htmlspecialchars($position['positionDescription'] ?? '') . "</p>";
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                    }
+                }
+            ?>
+            </div>        
             </div>
         </div>
     </div>
