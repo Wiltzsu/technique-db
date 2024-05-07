@@ -1,11 +1,11 @@
-# **Project Title: BJJ Technique Log**
+# **Grappling Technique Log**
 
 ## **Description**
-The BJJ Technique Log is a web application designed for Brazilian Jiu-Jitsu practitioners to log, track, and review their training techniques, categories, and positions. It offers users the ability to manage their personal training records and enhance their learning experience by keeping an organized journal of their BJJ progress.
+The Grappling Technique Log is a web application designed for Brazilian Jiu-Jitsu and other grappling practitioners to log, track, and review their training techniques, categories, and positions. It offers users the ability to manage their personal training records and enhance their learning experience by keeping an organized journal of their progress.
 
 ## **Features**
 
-- **Technique Logging:** Users can add detailed descriptions of their BJJ techniques, including name, category, and position.
+- **Technique Logging:** Users can add detailed descriptions of their techniques, including name, category, and position.
 - **Category Management:** Allows users to add and manage technique categories for better organization.
 - **Position Tracking:** Users can add positions associated with different techniques.
 - **Data Visualization:** Review and manage logged entries with easy navigation and interactive elements.
