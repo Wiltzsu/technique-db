@@ -187,6 +187,7 @@ if (file_exists($positions_file_path)) {
 
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
+
             <?php
                 if (isset($category_array['categories']) && is_array($category_array['categories']))
                 {
@@ -196,6 +197,14 @@ if (file_exists($positions_file_path)) {
                         echo '<div class="col-md-4 mb-3">'; // Each technique in a column
                         echo '<div class="card">';
                         echo '<div class="card-body">';
+                        ?> 
+                        <form action="delete_category.php" method="POST">
+                            <input type="" name="categoryID" value="<?php echo $category['categoryID'] ?>">
+                            <button type="submit" class="btn">
+                                <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/icons/trash.svg" alt="Delete">
+                            </button>
+                        </form>
+                        <?php
                         // The null coalesing operator '??' used to provide a default value if field value is null
                         echo '<h5 class="card-title">' . htmlspecialchars($category['categoryName'] ?? '') . "</h5>";
                         echo '<p class="card-text">' . htmlspecialchars($category['categoryDescription'] ?? '') . "</p>";

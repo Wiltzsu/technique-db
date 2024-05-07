@@ -1,11 +1,6 @@
 {
     "categories": [
         {
-            "categoryID": 6,
-            "categoryName": "testtt",
-            "categoryDescription": "testttt"
-        },
-        {
             "categoryID": 5,
             "categoryName": "Submission",
             "categoryDescription": null
