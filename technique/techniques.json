@@ -1,14 +1,6 @@
 {
     "techniques": [
         {
-            "techniqueID": 23,
-            "techniqueName": "JORMAAA",
-            "techniqueDescription": "JORMAAAA",
-            "categoryName": "Guard",
-            "difficulty": "Intermediate",
-            "positionName": "Closed Guard"
-        },
-        {
             "techniqueID": 22,
             "techniqueName": "testi",
             "techniqueDescription": "testi",
