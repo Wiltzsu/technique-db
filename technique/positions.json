@@ -1,11 +1,6 @@
 {
     "positions": [
         {
-            "positionID": 3,
-            "positionName": "test",
-            "positionDescription": "test"
-        },
-        {
             "positionID": 2,
             "positionName": "Closed Guard",
             "positionDescription": null

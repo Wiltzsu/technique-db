@@ -242,9 +242,16 @@ if (file_exists($positions_file_path)) {
                     echo '<div class="row">'; // Bootstrap layout
                     foreach ($position_array['positions'] as $position)
                     {
-                        echo '<div class="col-md-4 mb-3">'; // Each technique in a column
+                        echo '<div class="col-md-4 mb-3">'; // Each position in a column
                         echo '<div class="card">';
-                        echo '<div class="card-body">';
+                        echo '<div class="card-body">';?>
+                        <form action="delete_position.php" method="POST">
+                            <input type="" name="positionID" value="<?php echo $position['positionID'] ?>"> <!-- Echos 'positionID' value from $position array -->
+                            <button type="submit" class="btn">
+                                <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/icons/trash.svg" alt="Delete">
+                            </button>
+                        </form>
+                        <?php
                         // The null coalesing operator '??' used to provide a default value if field value is null
                         echo '<h5 class="card-title">' . htmlspecialchars($position['positionName'] ?? '') . "</h5>";
                         echo '<p class="card-text">' . htmlspecialchars($position['positionDescription'] ?? '') . "</p>";

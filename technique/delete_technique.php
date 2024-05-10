@@ -13,7 +13,7 @@ if (isset($_POST['techniqueID'])) {
     // Prepare a SQL query to delete a specific technique
     $query = "DELETE FROM Technique WHERE techniqueID=:techniqueID";
 
-    // Use PDOObject 'prepare' to prevent SQL injection
+    // Use PDO Object 'prepare' to prevent SQL injection
     $delete = $pdoConnection->prepare($query);
 
     // Bind the integer techniqueID to the SQL statement
