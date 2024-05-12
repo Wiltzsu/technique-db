@@ -19,6 +19,7 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
     header("Location: ../users/login.php");
 }
 
+
 ?>
 
 
@@ -77,7 +78,7 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
                             </select>
                         </div>
 
-                        <button type="submit" name="submitTechnique" class="btn btn-primary btn1">Add Technique</button>
+                        <button type="submit" name="submitTechniqueClass" class="btn btn-primary btn1">Add to journal</button>
                     </form>
                 </div>
             </div>
