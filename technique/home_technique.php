@@ -47,13 +47,13 @@ if (isset($_POST['submitTechnique'])) {
         }
     }
 
-// Instantiate CreatePosition class, providing the PDO database connection object as parameter
-$createPosition = new CreatePosition($pdoConnection);
+// Instantiate CreateCategory class, providing the PDO database connection object as parameter
+$createCategory = new CreateCategory($pdoConnection);
 
-// Checks if form 'submitPosition' button is clicked and uses the object to call the addTechnique method
-if (isset($_POST['submitPosition'])) {
+// Checks if form 'submitCategory' is pressed and uses the object to call the addCategory method with given parameters
+if (isset($_POST['submitCategory'])) {
     try {
-        if ($createPosition->addPosition($_POST['positionName'], $_POST['positionDescription'])) {
+        if ($createCategory->addCategory($_POST['categoryName'], $_POST['categoryDescription'])) {
             // If the insertion is successful, redirect user
             header("Location: home_technique.php");
             exit();
@@ -64,13 +64,13 @@ if (isset($_POST['submitPosition'])) {
     }
 }
 
-// Instantiate CreateCategory class, providing the PDO database connection object as parameter
-$createCategory = new CreateCategory($pdoConnection);
+// Instantiate CreatePosition class, providing the PDO database connection object as parameter
+$createPosition = new CreatePosition($pdoConnection);
 
-// Checks if form 'submitCategory' is pressed and uses the object to call the addCategory method with given parameters
-if (isset($_POST['submitCategory'])) {
+// Checks if form 'submitPosition' button is clicked and uses the object to call the addTechnique method
+if (isset($_POST['submitPosition'])) {
     try {
-        if ($createCategory->addCategory($_POST['categoryName'], $_POST['categoryDescription'])) {
+        if ($createPosition->addPosition($_POST['positionName'], $_POST['positionDescription'])) {
             // If the insertion is successful, redirect user
             header("Location: home_technique.php");
             exit();

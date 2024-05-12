@@ -15,10 +15,8 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $greeting = "Hello, " . htmlspecialchars($username);
 } else {
-    $greeting = "Welcome to your BJJ Technique Diary. Keep track of your training, add new techniques, and personalize your learning journey.";
+    header("Location: users/login.php");
 }
-
-if (!isset($_SESSION['username']))
 ?>
 
 <!DOCTYPE html>
@@ -38,16 +36,16 @@ if (!isset($_SESSION['username']))
         <p class="text-center"><?php echo $greeting; ?></p>
 
         <div class="list-group">
-            <a href="journal.php" class="list-group-item list-group-item-action">
+            <a href="journal/journal.php" class="list-group-item list-group-item-action">
                 <strong>Journal:</strong> View and log your daily practice.
             </a>
 
             <a href="technique/home_technique.php" class="list-group-item list-group-item-action">
-                <strong>Add Techniques:</strong> Add new techniques, categories, and positions.
+                <strong>Add:</strong> Add new techniques, categories, and positions.
             </a>
 
             <a href="technique/home_viewtechnique.php" class="list-group-item list-group-item-action">
-                <strong>View Techniques:</strong> View your techniques, categories, and positions.
+                <strong>View:</strong> View your techniques, categories, and positions.
             </a>
 
             <a href="profile.php" class="list-group-item list-group-item-action">
