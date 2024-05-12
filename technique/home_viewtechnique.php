@@ -237,32 +237,57 @@ if (file_exists($positions_file_path)) {
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
             <div class="card-body">
             <?php
-                if (isset($position_array['positions']) && is_array($position_array['positions']))
-                {
+                if (isset($position_array['positions']) && is_array($position_array['positions'])) {
                     echo '<div class="row">'; // Bootstrap layout
-                    foreach ($position_array['positions'] as $position)
-                    {
+                    foreach ($position_array['positions'] as $position) {
                         echo '<div class="col-md-4 mb-3">'; // Each position in a column
                         echo '<div class="card">';
-                        echo '<div class="card-body">';?>
-                        <form action="delete_position.php" method="POST">
-                            <input type="" name="positionID" value="<?php echo $position['positionID'] ?>"> <!-- Echos 'positionID' value from $position array -->
-                            <button type="submit" class="btn">
+                        echo '<div class="card-body">';
+                        ?>
+                        <div class="d-flex justify-content-between align-items-center"> <!-- Flexbox for horizontal layout -->
+                            <h5 class="card-title"><?php echo htmlspecialchars($position['positionName'] ?? ''); ?></h5> <!-- Position title -->
+                            
+                            <!-- Button to trigger modal -->
+                            <button type="button" class="btn" data-toggle="modal" data-target="#modal<?php echo $position['positionID']; ?>">
                                 <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/icons/trash.svg" alt="Delete">
                             </button>
-                        </form>
+                        </div>
+
+                        <p class="card-text"><?php echo htmlspecialchars($position['positionDescription'] ?? ''); ?></p> <!-- Position description -->
+
+                        <!-- Modal for deletion confirmation -->
+                        <div class="modal fade" id="modal<?php echo $position['positionID']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Confirmation</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        Are you sure you want to delete the position "<?php echo htmlspecialchars($position['positionName']); ?>"?
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <!-- Form for deletion -->
+                                        <form action="delete_position.php" method="POST">
+                                            <input type="hidden" name="positionID" value="<?php echo $position['positionID']; ?>">
+                                            <button type="submit" class="btn btn-danger">Delete position</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <?php
-                        // The null coalesing operator '??' used to provide a default value if field value is null
-                        echo '<h5 class="card-title">' . htmlspecialchars($position['positionName'] ?? '') . "</h5>";
-                        echo '<p class="card-text">' . htmlspecialchars($position['positionDescription'] ?? '') . "</p>";
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
+                        echo '</div>'; // Card body end
+                        echo '</div>'; // Card end
+                        echo '</div>'; // Column end
                     }
+                    echo '</div>'; // Row end
                 }
-            ?>
+                ?>
             </div>        
-            </div>
         </div>
     </div>
 

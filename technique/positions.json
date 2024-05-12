@@ -1,14 +1,14 @@
 {
     "positions": [
         {
-            "positionID": 2,
-            "positionName": "Closed Guard",
-            "positionDescription": null
+            "positionID": 9,
+            "positionName": "tttt",
+            "positionDescription": "ttt"
         },
         {
-            "positionID": 1,
-            "positionName": "Half Guard",
-            "positionDescription": null
+            "positionID": 8,
+            "positionName": "test",
+            "positionDescription": "test"
         }
     ]
 }
