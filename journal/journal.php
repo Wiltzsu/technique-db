@@ -5,6 +5,7 @@ session_start();
 require "../db.php";
 // Include necessary files
 include "technique_class_options.php";
+include "read_technique_class.php";
 
 // Display errors for debugging (remove or turn off error reporting in a production environment)
 error_reporting(E_ALL);
@@ -19,7 +20,11 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
     header("Location: ../users/login.php");
 }
 
+// Instantiate CreateTechniqueClass class, providing the PDO database connection as a parameter
+$readTechniqueClass = new CreateTechniqueClass($pdoConnection);
 
+// Trigger the reading and JSON creation process
+$readTechniqueClass->readTechniqueClass();
 ?>
 
 

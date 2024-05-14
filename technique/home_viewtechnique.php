@@ -162,7 +162,7 @@ if (file_exists($positions_file_path)) {
                                 echo '<div class="card">';
                                 echo '<div class="card-body">';?>
                                 <form action="delete_technique.php" method="POST">
-                                    <input type="" name="techniqueID" value="<?php echo $technique['techniqueID'] ?>"> <!-- Echos 'techniqueID' value from $technique array -->
+                                    <input type="hidden" name="techniqueID" value="<?php echo $technique['techniqueID'] ?>"> <!-- Echos 'techniqueID' value from $technique array -->
                                     <button type="submit" class="btn">
                                         <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/icons/trash.svg" alt="Delete">
                                     </button>
