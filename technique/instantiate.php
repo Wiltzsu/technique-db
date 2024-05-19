@@ -15,7 +15,7 @@ $readTechniques = new ReadTechniques($pdoConnection);
 $readTechniques->readTechniques();
 
 // Assign the JSON file path to a variable
-$techniques_file_path = "./data/techniques.json";
+$techniques_file_path = __DIR__ . '/../data/techniques.json'; // Corrected path
 
 // Check if 'techniques.json' exists
 if (file_exists($techniques_file_path)) {
@@ -50,7 +50,7 @@ $readCategories = new ReadCategories($pdoConnection);
 $readCategories->readCategories();
 
 // Assign the JSON file path to a variable
-$categories_file_path = "./data/techniques.json";
+$categories_file_path = __DIR__ . '/../data/categories.json'; // Corrected path
 
 // Check if 'categories.json' exists
 if (file_exists($categories_file_path)) {
@@ -82,7 +82,7 @@ $readPositions = new ReadPositions($pdoConnection);
 $readPositions->readPositions();
 
 // Assign the JSON file path to a variable
-$positions_file_path = "./data/techniques.json";
+$positions_file_path = __DIR__ . '/../data/positions.json'; // Corrected path
 
 // Check if 'positions.json' exists
 if (file_exists($positions_file_path)) {
