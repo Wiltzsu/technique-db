@@ -35,7 +35,10 @@ class ReadCategories {
         $json = json_encode($jsonData, JSON_PRETTY_PRINT);
 
         // Write to JSON file 'categories.json'
-        file_put_contents("categories.json", $json);
+        // DIR returns the directory of the current script
+        // /../ moves up one directory and then proceeds to the 'data' directory
+        $filePath = __DIR__ . '/../data/categories.json';
+        file_put_contents($filePath, $json);
     }
 }
 ?>

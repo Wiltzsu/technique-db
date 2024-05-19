@@ -36,7 +36,7 @@ class ReadPositions {
         $json = json_encode($jsonData, JSON_PRETTY_PRINT);
 
         // Write to JSON file 'positions.json'
-        // file_put_contents will create the file if it doesn't exist
-        file_put_contents("positions.json", $json);
+        $filepath = __DIR__ . "/../data/positions.json";
+        file_put_contents($filepath, $json);
     }
 }

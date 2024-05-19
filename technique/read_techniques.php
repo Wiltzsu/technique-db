@@ -44,8 +44,8 @@ class ReadTechniques {
         $json = json_encode($jsonData, JSON_PRETTY_PRINT);
 
         // Write to JSON file 'techniques.json'
-        // file_put_contents will create the file if it doesn't exist
-        file_put_contents("techniques.json", $json);
+        $filepath = __DIR__ . "/../data/techniques.json";
+        file_put_contents($filepath, $json);
     }
 }
 ?>
