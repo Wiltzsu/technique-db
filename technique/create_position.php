@@ -52,11 +52,7 @@ class CreatePosition {
         $statement->bindParam(":positionName", $this->positionName, PDO::PARAM_STR);
         $statement->bindParam(":positionDescription", $this->positionDescription, PDO::PARAM_STR);
 
-        if (!$statement->execute()) {
-            error_log("Failed to execute query: " . $statement->errorInfo()[2]); // Log SQL error
-        } else {
-            error_log("Position added succesfully"); // Confirm successful execution
-        }
+        $statement->execute();
     }
 }
 

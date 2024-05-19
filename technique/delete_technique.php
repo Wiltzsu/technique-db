@@ -19,15 +19,8 @@ if (isset($_POST['techniqueID'])) {
     // Bind the integer techniqueID to the SQL statement
     $delete->bindValue(':techniqueID', $techniqueID, PDO::PARAM_INT);
 
-    // Try to excecute the query and redirect upon successful deletion
-    try {
-        $delete->execute();
-        header("Location: home_viewtechnique.php");
-        exit();
-        // Otherwise give an error and log it
-    } catch (Exception $e) {
-        error_log("PDO Error: " . $e->getMessage());
-        echo "Error: " . $e->getMessage();
-    }
+    $delete->execute();
+    header("Location: home_viewtechnique.php");
+    exit();
 }
 ?>

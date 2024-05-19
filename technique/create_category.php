@@ -55,12 +55,8 @@ class CreateCategory {
         $statement->bindParam(":categoryName", $this->categoryName, PDO::PARAM_STR);
         $statement->bindParam(":categoryDescription", $this->categoryDescription, PDO::PARAM_STR);
 
-        // Execute the statement and log the error if it fails
-        if (!$statement->execute()) {
-            error_log("Failed to execute query: " . $statement->errorInfo()[2]);
-        } else {
-            error_log("Category added succesfully");
-        }
+        // Execute the statement
+        $statement->execute();
     }
 }
 ?>

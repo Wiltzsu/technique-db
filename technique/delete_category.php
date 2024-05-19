@@ -20,14 +20,9 @@ if (isset($_POST['categoryID'])) {
     $delete->bindValue(':categoryID', $categoryID, PDO::PARAM_INT);
 
     // Execute the query and redirect to home_viewtechnique.php upon successful deletion
-    try {
-        $delete->execute();
-        header("Location: home_viewtechnique.php");
-        exit(); // Ensure the script stops after the redirect
-        // Otherwise gives an error and logs it
-    } catch (PDOException $e) {
-        error_log("PDO Error: " . $e->getMessage());
-        echo "Error: " . $e->getMessage();
-    } 
+    $delete->execute();
+    header("Location: home_viewtechnique.php");
+    exit();
+
 }
 ?>

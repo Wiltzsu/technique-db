@@ -67,13 +67,8 @@ class CreateTechnique {
             $statement->bindParam(":positionID", $this->positionID, PDO::PARAM_INT);
             $statement->bindParam(":difficultyID", $this->difficultyID, PDO::PARAM_INT);
 
-            // Execute the prepared statement and throw an exception if it fails
-            if (!$statement->execute()) {
-                error_log("Failed to execute query: " . $statement->errorInfo()[2]); // Log SQL error
-                throw new Exception("Error creating technique");
-            } else {
-                error_log("Technique created successfully"); // Confirm successful execution
-            }
+            // Execute the prepared statement 
+            $statement->execute();
     }
 }
 ?>

@@ -51,13 +51,8 @@ class CreateTechniqueClass {
             $statement->bindParam(":techniqueID", $this->techniqueID, PDO::PARAM_INT);
             $statement->bindParam(":classID", $this->classID, PDO::PARAM_INT);
 
-            // Execute the statement and throw an error if unsuccessful
-            if (!$statement->execute()) {
-                error_log("Failed to execute query" . $statement->errorInfo()[2]);
-                throw new Exception("Error creating technique");
-            } else {
-                error_log("Technique created successfully");
-            }
+            // Execute the statement
+            $statement->execute();
     }
 }
 ?>

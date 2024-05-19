@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 // Database connection
-require "../Config/db.php";
+require "..config/db.php";
 // Include necessary files
 include "read_techniques.php";
 include "read_categories.php";
@@ -28,7 +28,7 @@ $readTechniques = new ReadTechniques($pdoConnection);
 $readTechniques->readTechniques();
 
 // Assign the JSON file path to a variable
-$techniques_file_path = "techniques.json";
+$techniques_file_path = "./data/techniques.json";
 
 // Check if 'techniques.json' exists
 if (file_exists($techniques_file_path)) {
@@ -63,7 +63,7 @@ $readCategories = new ReadCategories($pdoConnection);
 $readCategories->readCategories();
 
 // Assign the JSON file path to a variable
-$categories_file_path = "categories.json";
+$categories_file_path = "./data/techniques.json";
 
 // Check if 'categories.json' exists
 if (file_exists($categories_file_path)) {
@@ -95,7 +95,7 @@ $readPositions = new ReadPositions($pdoConnection);
 $readPositions->readPositions();
 
 // Assign the JSON file path to a variable
-$positions_file_path = "positions.json";
+$positions_file_path = "./data/techniques.json";
 
 // Check if 'positions.json' exists
 if (file_exists($positions_file_path)) {

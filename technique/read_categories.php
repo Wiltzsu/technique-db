@@ -1,5 +1,5 @@
 <?php
-require "../Config/db.php";
+require "../config/db.php";
 
 // Create a class for displaying categories
 class ReadCategories {

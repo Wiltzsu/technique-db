@@ -2,12 +2,12 @@
 // Start the session for session management
 session_start();
 // Require database connection file
-require "../Config/db.php";
+require "../config/db.php";
 // Include necessary files
 include "technique_class_options.php";
 include "read_technique_class.php";
 
-// Display errors for debugging (remove or turn off error reporting in a production environment)
+// Display errors for debugging 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
