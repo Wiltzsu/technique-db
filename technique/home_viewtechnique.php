@@ -194,7 +194,7 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
         <?php
         if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {?>
                 <div class="text-center mt-3">
-            <a href="users/logout.php" class="btn btn-primary btn1">Logout</a>
+            <a href="../users/logout.php" class="btn btn-primary btn1">Logout</a>
         </div><?php
         }?>
     </div>

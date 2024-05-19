@@ -15,7 +15,7 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $greeting = "Hello, " . htmlspecialchars($username);
 } else {
-    header("Location: users/login.php");
+    header("Location: users/login_page.php");
 }
 ?>
 
