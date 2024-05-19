@@ -2,7 +2,7 @@
 // Start the session for session management
 session_start();
 // Require database connection file
-require "../db.php";
+require "../Config/db.php";
 // Include necessary files
 include "technique_class_options.php";
 include "read_technique_class.php";
@@ -21,10 +21,10 @@ if (isset($_SESSION['username']) && !empty($_SESSION['username'])) {
 }
 
 // Instantiate CreateTechniqueClass class, providing the PDO database connection as a parameter
-$readTechniqueClass = new CreateTechniqueClass($pdoConnection);
+//$readTechniqueClass = new CreateTechniqueClass($pdoConnection);
 
 // Trigger the reading and JSON creation process
-$readTechniqueClass->readTechniqueClass();
+//$readTechniqueClass->readTechniqueClass();
 ?>
 
 

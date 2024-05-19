@@ -3,7 +3,7 @@
 session_start();
 
 // Database connection
-require "db.php";
+require "Config/db.php";
 
 // Display errors for debugging (remove or turn off error reporting in a production environment)
 error_reporting(E_ALL);

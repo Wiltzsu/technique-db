@@ -2,8 +2,8 @@
 // Start the session
 session_start();
 // Database connection
-require "../db.php";
-// Require necessary files
+require "../Config/db.php";
+    // Require necessary files
 include "create_options.php";
 include "create_technique.php";
 include "create_position.php";

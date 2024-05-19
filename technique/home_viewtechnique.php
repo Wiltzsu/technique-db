@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 // Database connection
-require "../db.php";
+require "../Config/db.php";
 // Include necessary files
 include "read_techniques.php";
 include "read_categories.php";
