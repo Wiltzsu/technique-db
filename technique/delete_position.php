@@ -1,5 +1,11 @@
 <?php
-require "../db.php";
+require "../config/db.php";
+
+// Display errors for debugging (remove or turn off error reporting in a production environment)
+ini_set('log_errors', 1);
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 
 // Check if form with 'positionID' name is submitted
 if (isset($_POST['positionID'])) {

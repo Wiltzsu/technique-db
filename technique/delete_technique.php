@@ -1,10 +1,11 @@
 <?php
-// Include the database connection file
-require "../db.php";
+require "../config/db.php";
 
-// Enable error reporting in the browser (turn off for production)
-error_reporting(E_ALL);
+// Display errors for debugging (remove or turn off error reporting in a production environment)
+ini_set('log_errors', 1);
 ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 
 if (isset($_POST['techniqueID'])) {
     // Assign the 'techniqueID' value from the form to a variable

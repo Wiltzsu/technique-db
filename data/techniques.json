@@ -1,12 +1,3 @@
 {
-    "techniques": [
-        {
-            "techniqueID": 24,
-            "techniqueName": "testtech",
-            "techniqueDescription": "its just a test technique",
-            "categoryName": "Guard",
-            "difficulty": "Easy",
-            "positionName": "aaaaaaaaaa"
-        }
-    ]
+    "techniques": []
 }

@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL); // Report all PHP errors
+ini_set('display_errors', 1); // Display errors to the browser
 // Create class for new user registering
 class UserRegistration {
     private $pdoConnection;
@@ -14,8 +15,7 @@ class UserRegistration {
         // This represents the current instance of the class in which it is used
         $this->pdoConnection = $pdoConnection;
         session_start();
-        error_reporting(E_ALL); // Report all PHP errors
-        ini_set('display_errors', 1); // Display errors to the browser
+
     }
     // registerUser attempts to register the user with the given parameters and methods
     public function registerUser($formUsername, $formEmail, $formPassword)
@@ -74,7 +74,7 @@ $error_message = ''; // Initiate an empty error message variable
 // Usage of the userRegistration class
 
 // Require database connection file
-require "../db.php";
+require "../config/db.php";
 // Create a new register object that takes the database connection as a parameter
 $userRegistration = new UserRegistration($pdoConnection);
 
